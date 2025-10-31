@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage & SessionStorage Example</title>
+</head>
+<body>
+  <h2>LocalStorage and SessionStorage Demo</h2>
+
+  <input type="text" id="userInput" placeholder="Enter something..." />
+  <button onclick="saveLocal()">Save to LocalStorage</button>
+  <button onclick="getLocal()">Get from LocalStorage</button>
+  <br><br>
+  <button onclick="saveSession()">Save to SessionStorage</button>
+  <button onclick="getSession()">Get from SessionStorage</button>
+
+  <p id="output"></p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function saveLocal() {
+      let value = document.getElementById("userInput").value;
+      localStorage.setItem("myData", value);
+      output.innerHTML = "Saved to localStorage: " + value;
+    }
+
+    function getLocal() {
+      let storedValue = localStorage.getItem("myData");
+      output.innerHTML = "Retrieved from localStorage: " + storedValue;
+    }
+
+    function saveSession() {
+      let value = document.getElementById("userInput").value;
+      sessionStorage.setItem("mySessionData", value);
+      output.innerHTML = "Saved to sessionStorage: " + value;
+    }
+
+    function getSession() {
+      let storedValue = sessionStorage.getItem("mySessionData");
+      output.innerHTML = "Retrieved from sessionStorage: " + storedValue;
+    }
+  </script>
+</body>
+</html>
